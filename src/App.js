@@ -11,7 +11,16 @@ function App() {
     const [selectedDay, setSelectedDay] = useState('pzt');
     const [loading, setLoading] = useState(false);
 
-    const days = ['pzt', 'sal', 'car', 'per', 'cum', 'cts', 'paz'];
+    const days = ['pazartesi', 'sali', 'carsamba', 'persembe', 'cuma', 'cumartesi', 'pazar'];
+    const dayEmojis = {
+        pazartesi: "😺",
+        sali: "😸",
+        carsamba: "😹",
+        persembe: "😻",
+        cuma: "😽",
+        cumartesi: "😼",
+        pazar: "🐱"
+    };
 
     useEffect(() => {
         fetchDayTodos('pzt');
@@ -69,46 +78,77 @@ function App() {
 
     return (
         <div className="container">
-            <div className="todo-app">
-                <div className="day-buttons">
-                    {days.map(day => (
-                        <button
-                            key={day}
-                            onClick={() => fetchDayTodos(day)}
-                            className={selectedDay === day ? 'active' : ''}
-                        >
-                            {day}
-                        </button>
-                    ))}
+            <div className="todo-window">
+                <div className="window-header">
+                    <div className="window-title">😺 KEDY'S TODO LIST 🌸</div>
+                    <div className="window-buttons">
+                        <div className="window-button"></div>
+                        <div className="window-button"></div>
+                        <div className="window-button"></div>
+                    </div>
                 </div>
-                <form onSubmit={addTodo}>
-                    <input
-                        type="text"
-                        value={newTodo}
-                        onChange={(e) => setNewTodo(e.target.value)}
-                        placeholder="Yeni görev..."
-                    />
-                    <button type="submit">Ekle</button>
-                </form>
-                {loading ? (
-                    <div>Yükleniyor...</div>
-                ) : (
-                    <ul>
-                        {todos.map(todo => (
-                            <li key={todo._id}>
-                                <input
-                                    type="checkbox"
-                                    checked={todo.completed}
-                                    onChange={() => toggleTodo(todo._id, todo.completed)}
-                                />
-                                <span className={todo.completed ? 'completed' : ''}>
-                                    {todo.text}
+
+                <div className="todo-content">
+                    <div className="window-icons">
+                        {days.map(day => (
+                            <button
+                                key={day}
+                                onClick={() => fetchDayTodos(day)}
+                                className={`icon ${selectedDay === day ? 'active' : ''}`}
+                            >
+                                <span className="emoji-icon">
+                                    {dayEmojis[day]}
                                 </span>
-                                <button onClick={() => deleteTodo(todo._id)}>Sil</button>
-                            </li>
+                                <span className="icon-text">
+                                    {day.slice(0,3).toUpperCase()}
+                                </span>
+                            </button>
                         ))}
-                    </ul>
-                )}
+                    </div>
+
+                    <form onSubmit={addTodo} className="flex gap-2">
+                        <input
+                            type="text"
+                            value={newTodo}
+                            onChange={(e) => setNewTodo(e.target.value)}
+                            placeholder="✨ Yeni görev ekle..."
+                            className="todo-input"
+                        />
+                        <button type="submit" className="add-button">
+                            ADD ✨
+                        </button>
+                    </form>
+
+                    {loading ? (
+                        <div className="error-window">😺 Loading...</div>
+                    ) : todos.length === 0 ? (
+                        <div className="error-window">
+                            😿 NO TASKS YET...
+                        </div>
+                    ) : (
+                        <ul className="mt-4">
+                            {todos.map(todo => (
+                                <li key={todo._id} className="todo-item">
+                                    <input
+                                        type="checkbox"
+                                        checked={todo.completed}
+                                        onChange={() => toggleTodo(todo._id, todo.completed)}
+                                        className="checkbox"
+                                    />
+                                    <span className={todo.completed ? 'line-through text-pink-300' : ''}>
+                                        {todo.text}
+                                    </span>
+                                    <button
+                                        onClick={() => deleteTodo(todo._id)}
+                                        className="ml-auto text-pink-400"
+                                    >
+                                        🗑️
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
             </div>
         </div>
     );
