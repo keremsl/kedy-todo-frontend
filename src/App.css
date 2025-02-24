@@ -1,93 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  background: #f8f8f8;
-  font-family: 'Press Start 2P', cursive;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    background-image: 
+        linear-gradient(0deg, transparent 95%, #e9ecef 95%);
+    background-size: 100% 30px;
+    font-family: 'Press Start 2P', cursive;
+    line-height: 30px;
 }
 
-.container {
-  background: #ffe4e1;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 300px;
-  text-align: center;
+.todo-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    width: 90%;
+    max-width: 500px;
+    margin: 2rem auto;
+    overflow: hidden;
+    border: 3px solid #ffb6c1;
 }
 
-.header {
-  background: #ffb6c1;
-  padding: 10px;
-  border-radius: 15px 15px 0 0;
-  color: #fff;
-  font-size: 14px;
-  margin-bottom: 20px;
+.card-header {
+    background: #ff69b4;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    border-bottom: 3px solid #ffb6c1;
+}
+
+.card-content {
+    padding: 1.5rem;
 }
 
 .day-buttons {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.day-buttons button {
-  background: #fff;
-  border: none;
-  border-radius: 50%;
-  padding: 10px;
-  cursor: pointer;
-  transition: transform 0.2s;
+.day-button {
+    background: #fff;
+    border: 2px solid #ffb6c1;
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
-.day-buttons button:hover {
-  transform: scale(1.1);
+.day-button.active {
+    background: #ff69b4;
+    color: white;
+    transform: scale(1.1);
 }
 
-form {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+.todo-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ffb6c1;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    font-family: inherit;
 }
 
-input[type="text"] {
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  padding: 5px;
-  flex: 1;
+.todo-list {
+    list-style: none;
+    padding: 0;
 }
 
-button {
-  background: #ff69b4;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  padding: 5px 10px;
-  cursor: pointer;
-  transition: background 0.2s;
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border: 2px solid #ffb6c1;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
 }
 
-button:hover {
-  background: #ff1493;
+.todo-checkbox {
+    margin-right: 1rem;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+.todo-text {
+    flex: 1;
 }
 
-li {
-  background: #fff;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.todo-delete {
+    background: none;
+    border: none;
+    color: #ff69b4;
+    cursor: pointer;
+    font-size: 1.2rem;
 }
 
 .completed {
-  text-decoration: line-through;
-  color: #888;
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* Scrollbar özelleştirmesi */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffb6c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff69b4;
 }
