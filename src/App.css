@@ -1,118 +1,75 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background: #f8f8f8;
+  font-family: 'Press Start 2P', cursive;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #ffe4e1;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  width: 300px;
+  text-align: center;
 }
 
-.todo-app {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  width: 90%;
-  max-width: 600px;
+.header {
+  background: #ffb6c1;
+  padding: 10px;
+  border-radius: 15px 15px 0 0;
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
 .day-buttons {
   display: flex;
-  gap: 8px;
-  margin-bottom: 25px;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
 .day-buttons button {
-  padding: 8px 16px;
+  background: #fff;
   border: none;
-  border-radius: 20px;
-  background: #f0f0f0;
-  color: #666;
+  border-radius: 50%;
+  padding: 10px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.2s;
 }
 
-.day-buttons button.active {
-  background: #007bff;
-  color: white;
-  transform: scale(1.05);
+.day-buttons button:hover {
+  transform: scale(1.1);
 }
 
 form {
   display: flex;
-  gap: 10px;
-  margin-bottom: 25px;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 input[type="text"] {
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
   flex: 1;
-  padding: 12px;
-  border: 2px solid #eee;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus {
-  border-color: #007bff;
-  outline: none;
 }
 
 button {
-  padding: 12px 24px;
-  background: #007bff;
-  color: white;
+  background: #ff69b4;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  color: #fff;
+  padding: 5px 10px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: bold;
+  transition: background 0.2s;
 }
 
 button:hover {
-  background: #0056b3;
-  transform: translateY(-2px);
+  background: #ff1493;
 }
 
 ul {
@@ -121,39 +78,16 @@ ul {
 }
 
 li {
+  background: #fff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 15px;
-  padding: 15px;
-  border-bottom: 1px solid #eee;
-  transition: background-color 0.3s ease;
-}
-
-li:hover {
-  background-color: #f8f9fa;
-}
-
-li:last-child {
-  border-bottom: none;
 }
 
 .completed {
   text-decoration: line-through;
-  color: #adb5bd;
-}
-
-li button {
-  background: #dc3545;
-  padding: 8px 16px;
-  font-size: 14px;
-}
-
-li button:hover {
-  background: #c82333;
-}
-
-input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
+  color: #888;
 }
