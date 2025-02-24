@@ -42,63 +42,77 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
 }
 
 .todo-app {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   width: 90%;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .day-buttons {
   display: flex;
-  gap: 5px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .day-buttons button {
-  padding: 5px 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background: #f0f0f0;
+  color: #666;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .day-buttons button.active {
   background: #007bff;
   color: white;
-  border-color: #0056b3;
+  transform: scale(1.05);
 }
 
 form {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 input[type="text"] {
   flex: 1;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 12px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 button {
-  padding: 8px 15px;
+  padding: 12px 24px;
   background: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
 }
 
 button:hover {
   background: #0056b3;
+  transform: translateY(-2px);
 }
 
 ul {
@@ -109,9 +123,14 @@ ul {
 li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px;
+  gap: 15px;
+  padding: 15px;
   border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease;
+}
+
+li:hover {
+  background-color: #f8f9fa;
 }
 
 li:last-child {
@@ -120,15 +139,21 @@ li:last-child {
 
 .completed {
   text-decoration: line-through;
-  color: #888;
+  color: #adb5bd;
 }
 
 li button {
   background: #dc3545;
-  padding: 5px 10px;
-  font-size: 0.8em;
+  padding: 8px 16px;
+  font-size: 14px;
 }
 
 li button:hover {
   background: #c82333;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
